@@ -1,35 +1,23 @@
-#include <stdio.h>
-#include <string.h>
+#include<stdio.h>
+#include<string.h>
 
-int main()
-{
-   char c[100];
-   char c1[50];
-   scanf("%[^\n]s",&c);
-   getchar();
-   scanf("%[^\n]s",&c1);
-   getchar();
-   int temp=strlen(c1);
-   int freq=0;
-   
-   
-   for(int i=0;i<strlen(c);++i){
-   int  temp1=0;
-    for(int j=0;j<temp;++j){
-        if(c[i]==c1[j]){
-           ++temp1; 
-           ++i;
-              
-        }
-        
-
-
+int main(){
+    char c[100];
+    scanf("%s",&c);
+    int freq[26];
+    for(int i=0;i<26;++i){
+        freq[i]=0;
     }
-
-    if(temp1==temp){
-        ++freq;
+   int i=0;
+   while(c[i]!='\0'){
+        int temp= c[i]-'a';
+        ++freq[temp];
+        ++i;
+}   
+      for(int i=0;i<26;++i){
+        printf(" (%c)--(%d)\n",'a'+i,freq[i]);
     }
-   }
-
-   printf("%d",freq);
-}
+}    
+       
+       
+  
